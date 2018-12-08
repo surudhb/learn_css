@@ -1,0 +1,22 @@
+@keyframes assertive-bounce {
+    90% { transform: translate(0, 10px) rotateZ(100deg); }
+    100% { transform: translate(0, 6px) rotateZ(60deg); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotateZ(100deg); }
+    40% { transform: translateY(-30px); } 
+    60% { transform: translateY(-15px); } 
+ }
+
+ @keyframes flip {
+    50% { transition: ease-in-out; transform: rotateY(-180deg); }
+}
+
+@keyframes scissoring {
+    50% { transform: scaleX(-1) translateY(-20px) rotateZ(-30deg); }
+}
+
+ @keyframes wave {
+    50% { transition: ease-in; transform: rotateZ(50deg); }
+}

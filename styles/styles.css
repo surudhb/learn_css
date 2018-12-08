@@ -1,0 +1,248 @@
+@import "animations.css";
+
+/* For theming, use CSS variables in stage 2 */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Theme CSS Begin */
+
+.nightmode {
+    background-color: dimgray;
+    /* background-color: linear-gradient(to bottom right, gray, lightgray); */
+    color: white;
+}
+
+.lightmode {
+    background-color: deepskyblue;
+    /* background-image: linear-gradient(to bottom right, rgba(163,178,188,1),rgba(23,186,228,1)); */
+    color: black;
+}
+
+/* Theme CSS End */
+
+/* Header CSS Begin */
+
+header {
+    background-color: gray;
+    text-align: center;
+}
+
+/* Header CSS End */
+
+/* Scoreboard CSS Begin */
+.score-board {
+    text-align: center;
+    border: 5px solid white;
+    padding: 0.5rem;
+    margin: 30px auto;
+    width: 4em;
+    max-width: 20rem;
+    max-height: 20rem;
+    position: relative;
+    border-radius: 5px;
+    font-size: 50px;
+}
+
+.score-label {
+    padding: 1px 1px;
+    border: 2px solid white;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+.score-labels {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#score-title {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.score-label {
+    position: absolute;
+    top: 35%;
+}
+
+#user-score-label {
+    left: -13%; 
+    background-color: green;
+}
+
+#comp-score-label {
+    right: -13%;
+    background-color: darkred;
+}
+
+/* Scoreboard CSS End */
+
+/* Game zone CSS Begin */
+
+.game-zone {
+    display: flex;
+}
+
+.column {
+    flex: 33%;
+    padding: 10px 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* Game zone CSS End */
+
+/* Choices CSS Begin */
+
+ .choice {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: peachpuff;
+ }
+
+ .choice-border {
+    position: relative;
+    margin: auto;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    border: 3px solid white;
+    border-radius: 50%;
+    background-color: gray;
+    transition: all 0.5s;
+ }
+
+ .choice-border:hover {
+    border: 5px solid darkslategray;
+    box-shadow: 0 0 0 3pt white;
+}
+
+.user-choices {
+    counter-reset: choices-count;
+    padding: 10px 10px;
+    top: 0; 
+    left: 0;
+    margin: 0;
+}
+
+.user-choices .choice-border:before {
+    counter-increment: choices-count;
+}
+
+.rowps > * {
+    margin-top: -15%;
+}
+
+.rowls > * {
+    justify-content: center;
+}
+/* Choices CSS End */
+
+/* Rock CSS */
+
+.rock:hover {
+    animation: bounce 1.5s 1;
+}
+
+/* Paper CSS */
+
+.paper {
+    /* margin-left: -0.5%; */
+}
+
+.paper:hover {
+    animation: wave 0.7s 1;
+}
+
+/* Scissors CSS */
+
+.scissors {
+    /* margin-right: -0.5%; */
+    transform: scaleX(-1);
+}
+
+.scissors:hover {
+    animation: scissoring 1s 1;
+}
+
+/* Lizard CSS */
+
+.lizard {
+    /* margin-left: 15%; */
+    transform: scaleX(-1) rotateZ(360deg);
+}
+
+.lizard:hover {
+    transform: scaleX(-1) rotateZ(-360deg);
+}
+
+/* Spock CSS */
+
+.spock {
+    /* margin-left: -4%; */
+}
+
+.spock:hover {
+    animation: flip 1s 1;
+}
+
+/* Gameplay choices */
+
+.final-choice-wrapper {
+    display: inline-block;
+}
+
+/* Begin/End Game button */
+
+.button-wrapper {
+    text-align: center;
+}
+
+#game-control {
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 1.5rem;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+.begin {
+    background-image: linear-gradient(to bottom right,lightgreen, green) !important;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.end {
+    background-image: linear-gradient(to bottom right, pink, red) !important;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+#game-control:active {
+    transform: translateY(1px);
+}
+
+.begin#game-control:hover {
+    border: 3px solid darkgreen;
+    box-shadow: 0 0 0 2pt white;
+}
+
+.end#game-control:hover {
+    border: 3px solid black;
+    box-shadow: 0 0 0 2pt red;
+}

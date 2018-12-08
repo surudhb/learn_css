@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <title>Rock Paper Scissors Lizard Spock</title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+    <body onload="init();" class="nightmode">
+        <header>
+            <h4>The Big Bang Theory inspired...</h4>
+            <h1>Rock Paper Scissors Lizard Spock</h1>
+        </header>
+
+        <div class="score-board">
+            <div class="score-labels">
+                <span class="score-label" id="user-score-label">user</span>
+                <span class="score-label" id="comp-score-label">comp</span>
+            </div>
+            <span class="scores" id="user-score">0</span>:<span class="scores" id="comp-score">0</span>
+        </div>
+
+        <div class="game-zone">
+            <div class="user column">
+                <div class="user-choices">
+                    <div class="row">
+                        <div class="rock choice-border">
+                            <i class="choice fas fa-hand-rock"></i>    
+                        </div>
+                    </div>
+                    <div class="row rowps">
+                        <div class="paper choice-border">
+                            <i class="choice fas fa-hand-paper"></i>
+                        </div>
+                        <div class="scissors choice-border">
+                            <i class="choice fas fa-hand-scissors"></i>
+                        </div>
+                    </div>
+                    <div class="row rowls">
+                        <div class="lizard choice-border">
+                            <i class="choice fas fa-hand-lizard"></i>
+                        </div>
+                        <div class="spock choice-border">
+                            <i class="choice fas fa-hand-spock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- have this span be changed and zoomed in and faded out to the text: Rock Paper Scissors Lizard Spock and then the comp displays their choice -->
+            <div id="gameplay column">
+                <span id="round-announcement">Rock Paper Scissors Lizard Spock!!!</span>
+                <div class="final-choice-wrapper">
+                    <div class="user-final-choice">
+                            <i class="fas fa-hand-spock"></i>
+                    </div>
+                    <div class="computer-final-choice">
+                        <i class="fas fa-hand-rock"></i>
+                    </div>
+                </div>
+                <div class="button-wrapper">
+                    <button id="game-control" class="begin">Begin</button>
+                </div>
+                <span id="round-result">There can be only one.</span>
+            </div>
+            <div class="computer column">
+                Figure out what to display here. Find a way to "show" that the computer is thinking. Keep track of the history of moves upto 10 moves? Can incorporate machine learning into this later on lol.
+            </div>  
+        </div>
+        <button id="theme-button">Night Mode</button>
+        <footer>Inspired by whatsdev's tutorial on Rock Paper Scissors on freecodecamp. Used the CSS debugger. Made with mistakes. And then love.</footer>
+        <script src="scripts/app.js" charset="utf-8"></script>
+    </body>
+</html>
