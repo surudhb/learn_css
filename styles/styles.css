@@ -2,7 +2,6 @@
 
 /* For theming, use CSS variables in stage 2 */
 
-
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +11,12 @@
 /* Theme CSS Begin */
 
 .nightmode {
-    background-color: dimgray;
-    /* background-color: linear-gradient(to bottom right, gray, lightgray); */
+    background-color: rgba(33,34,43,1);
     color: white;
 }
 
 .lightmode {
     background-color: deepskyblue;
-    /* background-image: linear-gradient(to bottom right, rgba(163,178,188,1),rgba(23,186,228,1)); */
     color: black;
 }
 
@@ -28,13 +25,38 @@
 /* Header CSS Begin */
 
 header {
-    background-color: gray;
+    color: rgba(33,34,43,1);
+    background-color: lightsteelblue;
+    background-color: lavender;
     text-align: center;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 1pt 1pt 0 0 white;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+    background-color: lightslategray; 
+    text-align: center;
+    color: lavender;
+}
+
+.column {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
 /* Header CSS End */
 
 /* Scoreboard CSS Begin */
+
+.scores {
+    font-family: 'Asap', sans-serif;
+}
 .score-board {
     text-align: center;
     border: 5px solid white;
@@ -75,7 +97,7 @@ header {
 
 #comp-score-label {
     right: -13%;
-    background-color: darkred;
+    background-color: crimson;
 }
 
 /* Scoreboard CSS End */
@@ -84,19 +106,9 @@ header {
 
 .game-zone {
     display: flex;
+    /* justify-content: flex-start; */
 }
 
-.column {
-    flex: 33%;
-    padding: 10px 10px;
-}
-
-.row {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 /* Game zone CSS End */
 
 /* Choices CSS Begin */
@@ -112,137 +124,257 @@ header {
 
  .choice-border {
     position: relative;
-    margin: auto;
+    margin: 5px 5px 5px 5px;
     width: 5rem;
     height: 5rem;
     cursor: pointer;
     border: 3px solid white;
     border-radius: 50%;
-    background-color: gray;
-    transition: all 0.5s;
+    background-color: rgba(33,34,43,0.5);
  }
 
- .choice-border:hover {
-    border: 5px solid darkslategray;
+ .choice-border:active {
+    transition: 0.1s;
+    box-shadow: none !important;
+}
+
+ .choice-border:enabled:hover {
+    /* border: 4px solid cadetblue;
+    box-shadow: 0 0 0 3pt white; */
+    border: 5px solid rgba(47,79,79,0.5);
     box-shadow: 0 0 0 3pt white;
 }
 
 .user-choices {
+    display: inline-flex;
     counter-reset: choices-count;
-    padding: 10px 10px;
-    top: 0; 
-    left: 0;
-    margin: 0;
 }
 
 .user-choices .choice-border:before {
     counter-increment: choices-count;
 }
 
-.rowps > * {
-    margin-top: -15%;
+.choice-border > i {
+    transition: none;
 }
 
-.rowls > * {
-    justify-content: center;
-}
 /* Choices CSS End */
 
 /* Rock CSS */
 
-.rock:hover {
+.rock:enabled:hover {
+    transition: all 0.5s;
     animation: bounce 1.5s 1;
 }
 
 /* Paper CSS */
 
-.paper {
-    /* margin-left: -0.5%; */
-}
-
-.paper:hover {
+.paper:enabled:hover {
+    transition: all 0.5s;
     animation: wave 0.7s 1;
 }
 
 /* Scissors CSS */
 
 .scissors {
-    /* margin-right: -0.5%; */
     transform: scaleX(-1);
 }
 
-.scissors:hover {
-    animation: scissoring 1s 1;
+.scissors:enabled:hover {
+    transition: all 0.5s;
+    animation: scissoring 0.7s 1;
 }
 
 /* Lizard CSS */
 
 .lizard {
-    /* margin-left: 15%; */
     transform: scaleX(-1) rotateZ(360deg);
 }
 
-.lizard:hover {
+.lizard:enabled:hover {
+    transition: all 0.5s;
     transform: scaleX(-1) rotateZ(-360deg);
 }
 
-/* Spock CSS */
+/* Spock CSS */ 
 
-.spock {
-    /* margin-left: -4%; */
-}
-
-.spock:hover {
+.spock:enabled:hover {
     animation: flip 1s 1;
 }
 
-/* Gameplay choices */
+/* Gameplay choices CSS Begin */
 
-.final-choice-wrapper {
-    display: inline-block;
+#gameplay {
+    flex-direction: column;
 }
 
-/* Begin/End Game button */
+#comp-final-choice > i {
+    transition: none;
+    transform: rotateY(180deg) translate(50%,-50%)!important;
+}
 
-.button-wrapper {
+.user-final-animate {
+    animation: user-gameplay 0.4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+
+.comp-final-animate {
+    animation: comp-gameplay 0.4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+
+.final-choice-wrapper {
+    pointer-events: none;
+    display: flex;
+}
+
+.commentary {
     text-align: center;
 }
 
-#game-control {
+/* Gameplay choices CSS End */
+
+/* Begin/End Game button */
+
+button > * {
+    pointer-events: none;
+}
+
+button {
+    outline: none;
+    text-align: center;
+}
+
+.button-wrapper {
+    display: flex;
+    padding-top: 20px;
+    /* position: absolute;
+    top: 60%;
+    left: 50%; */
+    /* transform: translate(-50%,-50%); */
+    justify-content: center;
+    align-content: center;
+}
+
+.game-control {
     color: white;
     text-align: center;
     cursor: pointer;
     outline: none;
-    border: 3px solid white;
-    border-radius: 10px;
-    width: 100px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 110px;
+    height: 40px;
+    font-size: 1rem;
     font-family: 'Arial Narrow Bold', sans-serif;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 25px;
+    transition: ease 0.3s;
 }
 
-.begin {
-    background-image: linear-gradient(to bottom right,lightgreen, green) !important;
-    border: 3px solid white;
-    border-radius: 10px;
+.game-control:active {
+    transform: translateY(5px);
 }
 
-.end {
-    background-image: linear-gradient(to bottom right, pink, red) !important;
-    border: 3px solid black;
-    border-radius: 10px;
+#begin:enabled:hover {
+    background-color: cadetblue !important;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 0 0 0 1pt darkslategray;
+    /* background-color: rgba(255, 255, 255, 1) !important;
+    color: rgba(33,34,43,1);
+    border: 1px solid rgba(33,34,43,1);
+    box-shadow: 0 0 0 1pt darkslategray; */
 }
 
-#game-control:active {
-    transform: translateY(1px);
+#begin:enabled {
+    color: white;
+    background-color: rgba(47,79,79,0.2);
 }
 
-.begin#game-control:hover {
-    border: 3px solid darkgreen;
-    box-shadow: 0 0 0 2pt white;
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
-.end#game-control:hover {
-    border: 3px solid black;
-    box-shadow: 0 0 0 2pt red;
+#begin:disabled {
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(33,34,43,0.7);
+    background-color: slategray !important;
+    box-shadow: 0 0 0 1pt slategray;
 }
+
+#end:hover {
+    border: 1px solid white;
+    background-color: red !important;
+}
+
+#end:enabled {
+    background-color: lightcoral;
+}
+
+#end:disabled {
+    background-color: lightcoral !important;
+}
+
+/* History column CSS Begin */
+
+.history {
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* padding: 10px; */
+    pointer-events: none;
+}
+
+.history-item {
+    display: inline-block;
+    flex-direction: column;
+    border: 1px solid white;
+}
+
+.history-choices {
+    display: inline-flex;
+}
+
+.user-choice {
+    padding: 1.25em;
+    width: 1em;
+    height: 1em;
+}
+
+.user-choice > .choice {
+    font-size: 1.5em;
+}
+
+.history-winner-box {
+    display: flex;
+    font-size: 1.25em;
+    padding: 5px 5px;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+#winner-label {
+    text-align: center;
+}
+
+.game-history {
+    font-family: 'Nunito', sans-serif;
+}
+
+.user-winner {
+    background-color: green;
+}
+
+.comp-winner {
+    background-color: crimson;
+}
+
+.no-winner {
+    background-color: lavender;
+}
+
+
+/* History column CSS End */
